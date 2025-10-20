@@ -4,19 +4,6 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
-    guid: 0f81d1aab5693d745bc794c98567fe18
-  - enabled: 1
-    path: Assets/Scenes/Day.unity
-    guid: db74e7bbf2f310647890627fdb2495dd
-<<<<<<< Updated upstream
-=======
-  - enabled: 1
-    path: Assets/Scenes/night.unity
-    guid: 25f1880bfec2afe4fb24b6ae930a79d4
->>>>>>> Stashed changes
-  m_configObjects:
-    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  m_Scenes: []
+  m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
