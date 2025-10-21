@@ -20,6 +20,9 @@ public class Nightplayerscript : MonoBehaviour
     private Vector2 movementInput;
     private Vector2 lastMoveDir = Vector2.right;
 
+    // === Healh and stats ===
+    public int hp = 0;
+
     private bool dashRequested = false;
 
     void Awake()
@@ -40,19 +43,18 @@ public class Nightplayerscript : MonoBehaviour
 
     void Update()
     {
-        // Record tap in Update (frame input)
+
         if (Keyboard.current != null && Keyboard.current.spaceKey.wasPressedThisFrame)
         {
             if (Time.time >= nextDashReadyTime)
             {
-                dashRequested = true;               // defer actual movement to FixedUpdate
+                dashRequested = true;
                 nextDashReadyTime = Time.time + dashCooldown;
                 Debug.Log("Dash requested");
             }
             else
             {
-                // Optional: tell yourself it's on cooldown
-                // Debug.Log("Dash on cooldown");
+
             }
         }
     }
