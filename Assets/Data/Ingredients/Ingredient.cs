@@ -7,7 +7,7 @@ using UnityEngine.UIElements;
 // Enums is a fixed list of options below i defined once. Keeps it organize 
 // and avoids different spellings for category and rarity in this case
 public enum IngredientCategory { Vegetable, Fruit, Grain, Dairy, Meat, Herb }
-public enum Rarity {Common, Uncommon, Rare}
+public enum Rarity { Common, Uncommon, Rare, Epic }
 
 //[CreateAssetMenu(...)] tells Unity to add a menu option in the Editor, so Ingredient assets can be created easily
 // Assets -> Create -> Game -> Ingredient

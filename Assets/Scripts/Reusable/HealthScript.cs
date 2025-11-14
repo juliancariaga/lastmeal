@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using System.Collections;
 
 public class Health : MonoBehaviour
 {
@@ -7,13 +8,23 @@ public class Health : MonoBehaviour
     public float maxHealth = 100f;
     public float currentHealth = 100f;
 
+    public enum MonsterRarity { Common, Uncommon, Rare, Epic }
+
     [Header("Events")]
     public UnityEvent onDamaged;
     public UnityEvent onDeath;
 
+    [Header("Scale feedback settings")]
+    public float scaleAmount = 0.8f;    // how small to shrink 
+    public float scaleDuration = 0.1f;  // how long the squish lasts before returning
+
+    private Vector3 originalScale;
+    private Coroutine scaleRoutine;
+
     void Awake()
     {
         currentHealth = maxHealth;
+        originalScale = transform.localScale;
     }
 
     /// <summary>
@@ -38,5 +49,22 @@ public class Health : MonoBehaviour
     {
         if (amount <= 0f || currentHealth <= 0f) return;
         currentHealth = Mathf.Min(maxHealth, currentHealth + amount);
+    }
+    public void ShrinkOnHit()
+    {
+        if (scaleRoutine != null)
+            StopCoroutine(scaleRoutine);
+
+        scaleRoutine = StartCoroutine(ScaleFlash());
+    }
+
+    private IEnumerator ScaleFlash()
+    {
+        // scale down
+        transform.localScale = originalScale * scaleAmount;
+        yield return new WaitForSeconds(scaleDuration);
+        // return to normal
+        transform.localScale = originalScale;
+        scaleRoutine = null;
     }
 }

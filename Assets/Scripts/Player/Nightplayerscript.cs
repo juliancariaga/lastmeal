@@ -1,3 +1,4 @@
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -19,6 +20,7 @@ public class Nightplayerscript : MonoBehaviour
     public Rigidbody2D rb;
     private Vector2 movementInput;
     private Vector2 lastMoveDir = Vector2.right;
+    Boolean facingRight;
 
     // === Healh and stats ===
     public int hp = 0;
@@ -57,6 +59,22 @@ public class Nightplayerscript : MonoBehaviour
 
             }
         }
+
+        // Get horizontal input (A/D or Left/Right)
+        movementInput.x = Input.GetAxisRaw("Horizontal");
+
+        // Move
+        //rb.velocity = new Vector2(movementInput.x * moveSpeed, rb.velocity.y);
+
+        // Flip the sprite if moving left/right
+        if (movementInput.x < 0 && !facingRight)
+        {
+            Flip();
+        }
+        else if (movementInput.x > 0 && facingRight)
+        {
+            Flip();
+        }
     }
 
     void FixedUpdate()
@@ -87,5 +105,14 @@ public class Nightplayerscript : MonoBehaviour
         }
 
         rb.MovePosition(rb.position + direction * speed * Time.fixedDeltaTime);
+    }
+    void Flip()
+    {
+        facingRight = !facingRight;
+
+        // Multiply the X scale by -1 to flip
+        Vector3 scale = transform.localScale;
+        scale.x *= -1;
+        transform.localScale = scale;
     }
 }
