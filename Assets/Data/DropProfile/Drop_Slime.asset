@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75cc6c4695a9e0149b5ee12ad47d8150, type: 3}
+  m_Name: Drop_Slime
+  m_EditorClassIdentifier: Assembly-CSharp::DropProfile
+  dropChance: 1
+  selectionMode: 1
+  entries:
+  - ingredient: {fileID: 11400000, guid: 7a559cf03f2cf7b4a878604a5ab38078, type: 2}
+    minOverride: 1
+    maxOverride: 4
+    weight: 0
+    chance: 1
+    guaranteed: 0
