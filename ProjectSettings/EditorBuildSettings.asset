@@ -11,5 +11,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/night.unity
     guid: 25f1880bfec2afe4fb24b6ae930a79d4
+  - enabled: 1
+    path: Assets/Scenes/Day.unity
+    guid: db74e7bbf2f310647890627fdb2495dd
+  - enabled: 1
+    path: Assets/Scenes/cooking.unity
+    guid: 34ac4e0c9b5b9964f8ab063ba85757be
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

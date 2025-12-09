@@ -3,6 +3,8 @@ using Unity.Collections;
 using Unity.VisualScripting;
 using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class DogSpawnerScript : MonoBehaviour
 {
@@ -17,6 +19,11 @@ public class DogSpawnerScript : MonoBehaviour
 
     void Start()
     {
+        if (SceneManager.GetActiveScene().name == "Day")
+        {
+            this.enabled = false;
+            return;
+        }
         GameObject found = GameObject.FindGameObjectWithTag("Player");
         if (found != null)
             player = found.transform;
@@ -26,6 +33,8 @@ public class DogSpawnerScript : MonoBehaviour
 
     void Update()
     {
+            
+
         if (player == null) return;
 
         timer += Time.deltaTime;

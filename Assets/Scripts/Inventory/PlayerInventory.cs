@@ -31,6 +31,9 @@ public class PlayerInventory : MonoBehaviour
 
     void Start()
 {
+    if (GameManager.Instance != null)
+        items = GameManager.Instance.persistentInventory; //// Load saved inventory from GameManager
+
     if (panel) panel.SetActive(false);   // start hidden
 }
 
