@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.Collections;
 
-
 public class WeaponScript : MonoBehaviour
 {
     [Header("Timing")]
@@ -22,7 +21,6 @@ public class WeaponScript : MonoBehaviour
     {
         col = GetComponent<Collider2D>();
         col.isTrigger = true; // important for DamageOnContact
-
 
         if (spriteRenderer == null) spriteRenderer = GetComponent<SpriteRenderer>();
 
@@ -48,7 +46,6 @@ public class WeaponScript : MonoBehaviour
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         float rotationOffset = -90f; // 90f instead if weird
         transform.rotation = Quaternion.Euler(0f, 0f, angle + rotationOffset);
-
     }
 
     private IEnumerator SwingOnce()
@@ -80,5 +77,13 @@ public class WeaponScript : MonoBehaviour
             foreach (var b in extraEnableWhileActive)
                 if (b) b.enabled = isActive;
         }
+    }
+
+    private void OnDisable()
+    {
+        // 🔧 Fix: switching away mid-swing shouldn’t perma-lock the weapon
+        StopAllCoroutines();
+        SetActiveState(false);
+        canSwing = true;
     }
 }

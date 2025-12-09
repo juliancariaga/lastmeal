@@ -35,16 +35,32 @@ public class DamageOnContact : MonoBehaviour
 
     private void TryDamage(Collider2D other)
     {
-        // Layer filter first (faster than GetComponent).
+        // 1) Layer filter first
         if ((targetLayers.value & (1 << other.gameObject.layer)) == 0) return;
 
-        // Don’t hit your own root (e.g., child trigger touching parent).
+        // 2) Don’t hit your own root
         if (other.transform.root == transform.root) return;
 
-        if (other.TryGetComponent<Health>(out var health))
+        // 3) Get Health once (if no Health, nothing to do)
+        if (!other.TryGetComponent<Health>(out var health)) return;
+
+        // 4) Rarity gating (only when this object acts like a weapon)
+        WeaponRarity weaponRarity = GetComponent<WeaponRarity>() ?? GetComponentInParent<WeaponRarity>();
+
+        if (weaponRarity != null && other.TryGetComponent<EnemyRarity>(out var enemyRarity))
         {
-            health.TakeDamage(damage, gameObject);
-            _lastHitTime = Time.time;
+            // Weapon is weaker than the enemy → blocked
+            if (weaponRarity.rarity < enemyRarity.rarity)
+            {
+                health.ShowBlockedHit();   // show text / shrink if enabled
+                _lastHitTime = Time.time;  // so it doesn't spam every frame
+                return;                    // no damage
+            }
         }
+
+        // 5) Apply damage normally
+        health.TakeDamage(damage, gameObject);
+        _lastHitTime = Time.time;
     }
+
 }

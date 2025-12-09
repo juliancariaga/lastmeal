@@ -15,7 +15,7 @@ MonoBehaviour:
   dropChance: 1
   selectionMode: 1
   entries:
-  - ingredient: {fileID: 11400000, guid: 7a559cf03f2cf7b4a878604a5ab38078, type: 2}
+  - ingredient: {fileID: 11400000, guid: 710ef24e796cb454caff4ae048bfc4b3, type: 2}
     minOverride: 1
     maxOverride: 4
     weight: 0
