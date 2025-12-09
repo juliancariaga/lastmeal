@@ -30,7 +30,7 @@ public class MerchantClick : MonoBehaviour
                 if (merchantPanel != null)
                     merchantPanel.SetActive(true);
 
-                Time.timeScale = 0f; // optional pause
+                // Time.timeScale = 0f; // optional pause
             }
         }
     }
