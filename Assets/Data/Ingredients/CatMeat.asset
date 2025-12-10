@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63b9c34c62b39dd4aa9cbf6bfc287e9e, type: 3}
   m_Name: CatMeat
   m_EditorClassIdentifier: Assembly-CSharp::Ingredient
-  id: dog_meat
-  displayName: Dog Meat
-  icon: {fileID: 21300000, guid: 6347d21c042881f41af0e0a3086e38da, type: 3}
+  id: cat_meat
+  displayName: Cockatrice Meat
+  icon: {fileID: 1302723820812287101, guid: f196cf8d985fc45bb97069357dea2374, type: 3}
   category: 4
   rarity: 0
   minAmount: 1

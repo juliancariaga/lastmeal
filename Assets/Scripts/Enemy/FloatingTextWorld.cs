@@ -3,9 +3,9 @@ using TMPro;
 
 public class FloatingTextWorld : MonoBehaviour
 {
-    public float lifetime = 1f;          // how long before destroying
+    public float lifetime = 4f;          // how long before destroying
     public float floatSpeed = 1f;        // move upward speed
-    public float fadeSpeed = 2f;         // fade strength
+    public float fadeSpeed = 0.5f;         // fade strength
 
     private TMP_Text text;
     private Color originalColor;

@@ -8,7 +8,7 @@ public class FoodSpawnerScript : MonoBehaviour
 {
     public GameObject food;
     public float spawnRate = 2;
-    private float timer = 0;
+    private float timer = 0;    
     public float deadZone = -9;
     float heightOffset = 10;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
